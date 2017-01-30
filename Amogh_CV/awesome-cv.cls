@@ -577,6 +577,34 @@
   \end{tabular*}%
 }
 
+% Define an entry of cv information
+% Usage: \cvmyentry{<title>}{<date>}{<description>}
+\newcommand*{\cvmyentry}[3]{%
+    \vspace{-2.0mm}
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+		{\entrytitlestyle{#1} & \entrydatestyle{#2}\\}
+		\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#3}}
+	\end{tabular*}%
+}
+
+
+% Define a line of cv information(skill)
+% Usage: \cvskill{<type>}{<skillset>}
+\newcommand*{\cvmyskills}[5]{%
+	  \vspace{-2.0mm}
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+		\ifempty{#2#3}
+		{\skilltypestyle{#1} & \entrydatestyle{#4} \\}
+		{\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+			\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+		\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+	\end{tabular*}%
+}
+
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
   \begin{center}
